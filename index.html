@@ -153,6 +153,16 @@ h2.serif,.section-head h2,.story-copy h2{font-weight:800!important;font-size:cla
 .hero .hero-copy{z-index:5!important;pointer-events:none}
 .hero .hero-copy button,.hero .hero-copy a{pointer-events:auto}
 @media(prefers-reduced-motion:reduce){.hero .hero-photo .agdal-hero-video{display:none!important}}
+
+/* FIX: hidden pages with intersection-based clipped hero never become visible */
+.page-hero.v5-image-reveal,
+.view.active .page-hero.v5-image-reveal,
+.view.active .page-hero {clip-path:none!important;opacity:1!important;visibility:visible!important;transform:none!important}
+.view.active .page-hero>div:first-child,
+.view.active .page-hero>div:first-child.v5-reveal {opacity:1!important;visibility:visible!important;filter:none!important;transform:none!important;animation:agdalPageHeading .8s cubic-bezier(.16,1,.3,1) both}
+.view.active .page-hero>img{opacity:1!important;visibility:visible!important}
+@keyframes agdalPageHeading{from{opacity:.1;transform:translateY(25px)}to{opacity:1;transform:translateY(0)}}
+@media(prefers-reduced-motion:reduce){.view.active .page-hero>div:first-child{animation:none!important}}
 </style></head><body><div class="agdal-progress" id="agdalScrollProgress" aria-hidden="true"></div><div id="agdal-loader" role="status" aria-live="polite" aria-label="Chargement du site Agdal Dental Clinic"><div class="loader-content"><div class="loader-kicker">Agdal Dental Clinic · Rabat</div><img class="loader-mark" src="assets/agdal-logo.png" alt="Agdal Dental Clinic"><div class="loader-line"></div><span class="loader-counter" id="agdal-loader-count" aria-hidden="true">0</span><div class="loader-subtitle">Implants posés</div><div class="loader-small">Une expertise construite sourire après sourire</div><div class="loader-progress" aria-hidden="true"><span id="agdal-loader-progress"></span></div></div></div>
 <div class="topbar">RABAT · MAROC <span>✦</span> L’EXCELLENCE AU SERVICE DE VOTRE SOURIRE <span>✦</span> +212 537 675 065</div>
 <header><button class="brand" onclick="navigate('home')" style="background:transparent;border:0;padding:0" aria-label="Accueil"><img src="assets/agdal-logo.png" alt="Logo Agdal Dental Clinic"><div class="brandname">Agdal Dental<small>CLINIC</small></div></button><nav class="nav"><button data-nav="home" onclick="navigate('home')">Accueil</button><button data-nav="doctor" onclick="navigate('doctor')">Dr Alami</button><button data-nav="services" onclick="navigate('services')">Nos soins</button><button data-nav="gallery" onclick="navigate('gallery')">La clinique</button><button data-nav="contact" onclick="navigate('contact')">Contact</button><button class="appointment" onclick="navigate('contact')">Prendre rendez-vous ↗</button></nav><button class="burger" onclick="toggleMenu()" aria-label="Ouvrir le menu">☰</button></header>
